@@ -3,6 +3,7 @@ package teams;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.plugin.java.JavaPlugin;
+import teams.commands.KonecHry;
 import teams.commands.VytvorTeleportera;
 import teams.listenery.*;
 import teams.lobby.Lobby;
@@ -34,6 +35,7 @@ public class MainTeams extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new RespawnHrace(tymy), this);
         //commandy
         getCommand("+vytvorTeleportera").setExecutor(new VytvorTeleportera());
+        getCommand("+konec").setExecutor(new KonecHry(teleportDoLoby, tymy));
     }
 
 }

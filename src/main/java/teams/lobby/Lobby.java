@@ -1,11 +1,12 @@
 package teams.lobby;
 
+import org.apache.commons.lang.math.RandomUtils;
 import org.bukkit.Location;
 import org.bukkit.World;
-import org.bukkit.craftbukkit.libs.org.apache.commons.lang3.RandomUtils;
 import org.bukkit.entity.Player;
 
 import java.util.List;
+import java.util.Random;
 import java.util.stream.Collectors;
 
 public final class Lobby {
@@ -54,10 +55,11 @@ public final class Lobby {
     private double randomPoint(double point1, double point2) {
         var min = Math.min(point1, point2);
         var max = Math.max(point1, point2);
+        Random random = new Random();
         if (min < 0) {
-            return RandomUtils.nextDouble(0, max + Math.abs(min)) + min;
+            return random.nextDouble(max + Math.abs(min)) + min;
         } else {
-            return RandomUtils.nextDouble(min, max);
+            return random.nextDouble(min, max);
         }
     }
 
