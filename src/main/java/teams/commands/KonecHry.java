@@ -3,15 +3,15 @@ package teams.commands;
 import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.entity.Player;
-import teams.teleporter.TeleportDoLoby;
+import teams.teleporter.TeleportDoLobby;
 import teams.tymy.Tymy;
 
 public class KonecHry extends  OperatorCommandExecutor {
 
-    private final TeleportDoLoby teleportDoLoby;
+    private final TeleportDoLobby teleportDoLoby;
     private final Tymy tymy;
 
-    public KonecHry(TeleportDoLoby teleportDoLoby, Tymy tymy) {
+    public KonecHry(TeleportDoLobby teleportDoLoby, Tymy tymy) {
         this.teleportDoLoby = teleportDoLoby;
         this.tymy = tymy;
     }

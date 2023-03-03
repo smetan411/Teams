@@ -4,7 +4,7 @@ package teams.listenery;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import teams.teleporter.TeleportDoAreny;
-import teams.teleporter.TeleportDoLoby;
+import teams.teleporter.TeleportDoLobby;
 import teams.tymy.SkoreTymu;
 import teams.tymy.Tym;
 import teams.tymy.Tymy;
@@ -13,11 +13,11 @@ public class ZabitiNepritele extends PlayerDamageByPlayerListener {
 
     public static final int limit = 10;
     private final Tymy tymy;
-    private final TeleportDoLoby teleportDoLoby;
+    private final TeleportDoLobby teleportDoLoby;
     private final TeleportDoAreny teleportDoAreny;
     private final SkoreTymu skoreTymu;
 
-    public ZabitiNepritele(Tymy tymy, TeleportDoLoby teleportDoLoby, TeleportDoAreny teleportDoAreny, SkoreTymu skoreTymu) {
+    public ZabitiNepritele(Tymy tymy, TeleportDoLobby teleportDoLoby, TeleportDoAreny teleportDoAreny, SkoreTymu skoreTymu) {
         this.tymy = tymy;
         this.teleportDoLoby = teleportDoLoby;
         this.skoreTymu = skoreTymu;

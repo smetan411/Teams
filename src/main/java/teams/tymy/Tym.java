@@ -20,9 +20,22 @@ public final class Tym {
 
     public Tym(JmenoTymu jmenoTymu, Location mistoVArene) {
         this.jmenoTymu = jmenoTymu;
-        armor = new ArmorFactory(jmenoTymu.getColor());
         this.spawnPoint = mistoVArene;
+        armor = new ArmorFactory(jmenoTymu.getColor());
         weapons = new Weapons();
+    }
+
+    private void vybavHrace(Player hrac) {
+        var inventory = hrac.getInventory();
+        inventory.clear();
+        inventory.setChestplate(armor.chestplate());
+        inventory.setBoots(armor.boots());
+        inventory.setLeggings(armor.leggins());
+        inventory.setHelmet(armor.helmet());
+        inventory.setItemInMainHand(weapons.sword());
+        inventory.setItemInOffHand(weapons.shield());
+        inventory.addItem(weapons.bow());
+        inventory.addItem(weapons.arrow());
     }
 
     public void pridej(Player player) {
@@ -42,30 +55,17 @@ public final class Tym {
         return new HashSet<>(hraci);
     }
 
-    public void zprava(String text, String subtext) {
-        hraci.forEach(hrac -> {
-            hrac.sendTitle(text, subtext, 0, convertSecToTicks(10), 0);
-        });
-    }
-
     public JmenoTymu getJmenoTymu() {
         return jmenoTymu;
     }
 
-    private void vybavHrace(Player hrac) {
-        var inventory = hrac.getInventory();
-        inventory.clear();
-        inventory.setChestplate(armor.chestplate());
-        inventory.setBoots(armor.boots());
-        inventory.setLeggings(armor.leggins());
-        inventory.setHelmet(armor.helmet());
-        inventory.setItemInMainHand(weapons.sword());
-        inventory.setItemInOffHand(weapons.shield());
-        inventory.addItem(weapons.bow());
-        inventory.addItem(weapons.arrow());
-    }
-
     private static int convertSecToTicks(int sec) {
         return sec * 20;
+    }
+
+    public void zprava(String text, String subtext) {
+        hraci.forEach(hrac -> {
+            hrac.sendTitle(text, subtext, 0, convertSecToTicks(10), 0);
+        });
     }
 }

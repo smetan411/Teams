@@ -1,5 +1,5 @@
   # Misto kde je lobby a kam se hraci teleportuji po pripojeni. Definujte ho obdobne jako na nize uvedenem prikladu.
-  # misto world zadajte jmeno vaseho sveta a validni souradnice.
+  # misto world zadejte jmeno vaseho sveta a validni souradnice.
   # LobbyLocationStartCorner:  dolni roh lobby
   # LobbyLocationEndCorner: horni roh lobby
   # oba tyto  rohy urcuji uhlopricku mistnosti od podlahy ke stropu napric mistnosti

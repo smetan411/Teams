@@ -3,40 +3,34 @@ package teams.tymy;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 public class Tymy {
     private List<Tym> tymy = new ArrayList<>();
-
-    public List<Tym> vratTymy() {
-        return new ArrayList<>(tymy);
-    }
-
     public int pocet() {
         return tymy.size();
     }
-
     public void clear() {
         tymy.clear();
     }
-
+    public boolean hraJede() {
+        return !tymy.isEmpty();
+    }
     public Tym vratTym(int cislo) {
         return tymy.get(cislo);
     }
+    public Tym vratTym(Player player) {
+        return
+                tymy.stream()
+                        .filter(tym -> tym.vratHrace()
+                        .contains(player)).findFirst()
+                        .orElseThrow(() -> new IllegalArgumentException("Hrac neexistuje."));
+    }
 
-    public void vytvorTymy(List<Player> hraci, List<Location> spawnPointy) {
-        tymy.clear();
-        int pocetTymu = spawnPointy.size();
-        if (pocetTymu > JmenoTymu.values().length) throw new IllegalArgumentException("Prilis mnoho tymu.");
-        for (int i = 0; i < pocetTymu; i++) {
-            tymy.add(new Tym(JmenoTymu.values()[i], spawnPointy.get(i)));
-        }
-        hraci = zamichej(hraci);
-        int i = 0;
-        for (Player player : hraci) {
-            tymy.get(i++).pridej(player);
-            if (i >= pocetTymu) i = 0;
-        }
+    public List<Tym> vratTymy() {
+        return new ArrayList<>(tymy);
     }
 
     public boolean spoluhraci(Player player1, Player player2) {
@@ -48,7 +42,7 @@ public class Tymy {
         return false;
     }
 
-    private List<Player> zamichej(List<Player> hraci) {
+    private List<Player> zamichejHrace(List<Player> hraci) {
         Random rand = new Random();
         for (int i = 0; i < 100; i++) {
             int prvniIndex = rand.nextInt(hraci.size());
@@ -56,19 +50,23 @@ public class Tymy {
             Player player = hraci.get(prvniIndex);
             hraci.set(prvniIndex, hraci.get(druhyIndex));
             hraci.set(druhyIndex, player);
+            //hraci.set(druhyIndex, hraci.get(prvniIndex));
         }
         return hraci;
     }
 
-    public Tym vratTym(Player player) {
-        return
-                tymy.stream()
-                        .filter(tym -> tym.vratHrace().contains(player))
-                        .findFirst()
-                        .orElseThrow(() -> new IllegalArgumentException("Hrac neexistuje."));
-    }
-
-    public boolean hraJede() {
-        return !tymy.isEmpty();
+    public void vytvorTymy(List<Player> hraci, List<Location> spawnPointy) {
+        tymy.clear();
+        int pocetTymu = spawnPointy.size();
+        if (pocetTymu > JmenoTymu.values().length) throw new IllegalArgumentException("Prilis mnoho tymu.");
+        for (int i = 0; i < pocetTymu; i++) {
+            tymy.add(new Tym(JmenoTymu.values()[i], spawnPointy.get(i)));
+        }
+        hraci = zamichejHrace(hraci);
+        int i = 0;
+        for (Player player : hraci) {
+            tymy.get(i++).pridej(player);
+            if (i >= pocetTymu) i = 0;
+        }
     }
 }

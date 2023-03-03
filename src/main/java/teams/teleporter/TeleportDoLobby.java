@@ -4,11 +4,11 @@ package teams.teleporter;
 import teams.lobby.Lobby;
 import teams.tymy.Tymy;
 
-public class TeleportDoLoby {
+public class TeleportDoLobby {
     private final Lobby lobby;
     private final Tymy tymy;
 
-    public TeleportDoLoby(Lobby lobby, Tymy tymy) {
+    public TeleportDoLobby(Lobby lobby, Tymy tymy) {
         this.lobby = lobby;
         this.tymy = tymy;
     }

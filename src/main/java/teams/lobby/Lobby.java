@@ -1,6 +1,5 @@
 package teams.lobby;
 
-import org.apache.commons.lang.math.RandomUtils;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.entity.Player;

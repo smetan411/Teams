@@ -9,7 +9,7 @@ import teams.listenery.*;
 import teams.lobby.Lobby;
 import teams.lobby.LobbyCreator;
 import teams.teleporter.TeleportDoAreny;
-import teams.teleporter.TeleportDoLoby;
+import teams.teleporter.TeleportDoLobby;
 import teams.tymy.SkoreTymu;
 import teams.tymy.Tymy;
 
@@ -24,7 +24,7 @@ public class MainTeams extends JavaPlugin {
         Lobby lobby = lobbyCreator.createLobby();
         Tymy tymy = new Tymy();
         TeleportDoAreny teleportDoAreny = new TeleportDoAreny(this, lobby, tymy);
-        TeleportDoLoby teleportDoLoby = new TeleportDoLoby(lobby, tymy);
+        TeleportDoLobby teleportDoLoby = new TeleportDoLobby(lobby, tymy);
         SkoreTymu skoreTymu = new SkoreTymu(Bukkit.getScoreboardManager().getNewScoreboard(), tymy);
 
         //listeners

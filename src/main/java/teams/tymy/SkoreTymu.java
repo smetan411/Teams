@@ -7,8 +7,8 @@ import org.bukkit.scoreboard.Scoreboard;
 
 public final class SkoreTymu {
 
-    private final Scoreboard scoreboard;
     private final Tymy tymy;
+    private final Scoreboard scoreboard;
     private final Objective objective;
 
     public SkoreTymu(Scoreboard scoreboard, Tymy tymy) {
