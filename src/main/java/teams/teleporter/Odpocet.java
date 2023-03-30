@@ -8,7 +8,7 @@ final class Odpocet implements Runnable {
 
     private final List<Player> hraci;
     private volatile boolean odpocet;
-
+    //promenna je viditelna ve vsech vlaknech
     public Odpocet(List<Player> hraci) {
         this.hraci = hraci;
     }
@@ -36,4 +36,5 @@ final class Odpocet implements Runnable {
     private static int convertSecToTicks(int sec) {
         return sec * 20;
     }
+
 }

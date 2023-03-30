@@ -36,6 +36,7 @@ public final class Tym {
         inventory.setItemInOffHand(weapons.shield());
         inventory.addItem(weapons.bow());
         inventory.addItem(weapons.arrow());
+        inventory.addItem(weapons.goldenApple());
     }
 
     public void pridej(Player player) {

@@ -17,6 +17,13 @@ public final class SkoreTymu {
         objective = scoreboard.registerNewObjective("test", "dummy", "Skore");
     }
 
+    public void update() {
+        for (Tym tym : tymy.vratTymy()) {
+            Score skore = objective.getScore(tym.getJmenoTymu().getChatColor() + tym.getJmenoTymu().getJmeno());
+            skore.setScore(tym.pocetKillu);
+        }
+    }
+
     public void inicializace() {
         objective.setDisplaySlot(DisplaySlot.SIDEBAR);
         update();
@@ -25,10 +32,5 @@ public final class SkoreTymu {
         }
     }
 
-    public void update() {
-        for (Tym tym : tymy.vratTymy()) {
-            Score skore = objective.getScore(tym.getJmenoTymu().getChatColor() + tym.getJmenoTymu().getJmeno());
-            skore.setScore(tym.pocetKillu);
-        }
-    }
+
 }

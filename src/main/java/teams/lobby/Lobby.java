@@ -17,6 +17,32 @@ public final class Lobby {
         this.roh2 = roh2;
     }
 
+    private double randomPoint(double point1, double point2) {
+        var min = Math.min(point1, point2);
+        var max = Math.max(point1, point2);
+        Random random = new Random();
+        if (min < 0) {
+            return min + random.nextDouble(max + Math.abs(min));
+        } else {
+            return random.nextDouble(min, max);
+        }
+    }
+
+    public Location nahodneMistoVLobby() {
+        //x random
+        double x = randomPoint(roh1.getX(), roh2.getX());
+        //y minimum
+        double minY = Math.min(roh1.getY(), roh2.getY());
+        //z random
+        double z = randomPoint(roh1.getZ(), roh2.getZ());
+        return new Location(roh1.getWorld(), x, minY, z);
+    }
+
+    private boolean between(double value, double min, double max) {
+
+        return value >= min && value <= max;
+    }
+
     public boolean jeVLobby(Location location) {
         //between x
         var minX = Math.min(roh1.getX(), roh2.getX());
@@ -34,38 +60,12 @@ public final class Lobby {
         if (!between(location.getZ(), minZ, maxZ)) return false;
 
         //vse v poradku
-        return true;
+       return true;
     }
 
-    private boolean between(double value, double min, double max) {
-
-        return value >= min && value <= max;
-    }
-
-    public Location nahodneMistoVLobby() {
-        double x = randomPoint(roh1.getX(), roh2.getX());
-        //y random
-        var minY = Math.min(roh1.getY(), roh2.getY());
-        //between Z
-        double z = randomPoint(roh1.getZ(), roh2.getZ());
-        return new Location(roh1.getWorld(), x, minY, z);
-    }
-
-    private double randomPoint(double point1, double point2) {
-        var min = Math.min(point1, point2);
-        var max = Math.max(point1, point2);
-        Random random = new Random();
-        if (min < 0) {
-            return random.nextDouble(max + Math.abs(min)) + min;
-        } else {
-            return random.nextDouble(min, max);
-        }
-    }
 
     public List<Player> hraciVLobby() {
         World world = roh1.getWorld();
-        return world.getPlayers().stream()
-                .filter(player -> jeVLobby(player.getLocation()))
-                .collect(Collectors.toList());
+        return world.getPlayers().stream().filter(player -> jeVLobby(player.getLocation())).collect(Collectors.toList());
     }
 }

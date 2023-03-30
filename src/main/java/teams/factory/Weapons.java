@@ -26,5 +26,10 @@ public class Weapons {
         var sip = new ItemStack(Material.ARROW, 1);
         return sip;
     }
+
+    public ItemStack goldenApple() {
+        var goldenApple = new ItemStack(Material.GOLDEN_APPLE, 64);
+        return goldenApple;
+    }
 }
 
