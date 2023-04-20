@@ -6,7 +6,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.entity.Villager;
 import teams.teleporter.TeleportDoAreny;
 
-public class VytvorTeleportera extends OperatorCommandExecutor {
+public class VytvorTeleportera extends PlayerCommandExecutor {
 
     @Override
     boolean onCommand(Player operator, World world, Command command, String s, String[] args) {

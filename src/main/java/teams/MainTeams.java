@@ -33,6 +33,8 @@ public class MainTeams extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new ZabitiNepritele(tymy, teleportDoLoby, teleportDoAreny, skoreTymu), this);
         getServer().getPluginManager().registerEvents(new OdpocetZakazPohybu(tymy, teleportDoAreny), this);
         getServer().getPluginManager().registerEvents(new RespawnHrace(tymy), this);
+        getServer().getPluginManager().registerEvents(new ZabitiLukem(tymy), this);
+
         //commandy
         getCommand("+vytvorTeleportera").setExecutor(new VytvorTeleportera());
         getCommand("+konec").setExecutor(new KonecHry(teleportDoLoby, tymy));

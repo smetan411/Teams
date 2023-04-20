@@ -21,14 +21,6 @@ public class OdpocetZakazPohybu implements Listener {
     public void zakazPohybu(PlayerMoveEvent event) {
         if (teleportDoHry.jeOdpocet()) {
             Player player = event.getPlayer();
-
-//  varianta          for (Tym tym : tymy.vratTymy()) {
-//                if (tym.patriDoTymu(player)) {
-//                    event.setCancelled(true);
-//                    return;
-//                }
-//            }
-
             boolean jeVTymu = tymy.vratTymy()
                     .stream()
                     .anyMatch(tym -> tym.patriDoTymu(player));

@@ -6,7 +6,7 @@ import org.bukkit.entity.Player;
 import teams.teleporter.TeleportDoLobby;
 import teams.tymy.Tymy;
 
-public class KonecHry extends  OperatorCommandExecutor {
+public class KonecHry extends PlayerCommandExecutor {
 
     private final TeleportDoLobby teleportDoLoby;
     private final Tymy tymy;

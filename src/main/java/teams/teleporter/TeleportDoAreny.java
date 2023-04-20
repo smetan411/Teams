@@ -6,8 +6,6 @@ import org.bukkit.plugin.Plugin;
 import teams.lobby.Lobby;
 import teams.tymy.Tym;
 import teams.tymy.Tymy;
-
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
